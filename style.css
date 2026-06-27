@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght=700&family=Poppins:wght=300;400;600&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(to bottom, #ffe4e1, #ffb6c1);
+    font-family: 'Poppins', sans-serif;
+    color: #4a4a4a;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+/* Efek Hati Berguguran */
+.falling-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+.heart-drop {
+    position: absolute;
+    color: #ff4d6d;
+    font-size: 20px;
+    animation: fall linear infinite;
+}
+
+@keyframes fall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+}
+
+/* HALAMAN 1: PEMBUKAAN */
+.section-pembukaan {
+    width: 100%;
+    max-width: 800px;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #ff4d6d;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.pembukaan-text {
+    font-size: 1.2rem;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-weight: 300;
+}
+
+.foto-pembukaan-container {
+    margin-bottom: 40px;
+}
+
+.foto-pembukaan {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+}
+
+/* Tombol Musik */
+.btn-putar-musik {
+    background-color: #ff4d6d;
+    color: white;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+    transition: all 0.3s ease;
+    animation: pulse 2s infinite;
+}
+
+.btn-putar-musik:hover {
+    background-color: #ff758f;
+    transform: translateY(-3px);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* HALAMAN 2: SURAT UTAMA */
+.section-utama {
+    display: none; /* Disembunyikan dulu di awal */
+    width: 100%;
+    max-width: 1200px;
+    padding: 40px 20px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.layout-konten {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Mengubah dari 'center' ke 'stretch' agar semua kolom sama tinggi */
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.kolom-foto {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Mendistribusikan 3 foto secara merata dari atas sampai bawah kotak */
+    width: 25%;
+}
+
+.foto-galeri {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 20px;
+    border: 5px solid white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Kolom Teks Cerita Tengah - Scroll dihapus total */
+.kolom-cerita {
+    width: 45%;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    text-align: left;
+}
+
+.cerita-text p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    text-indent: 30px;
+}
+
+.highlight-maaf {
+    background: #ffe4e1;
+    padding: 20px;
+    border-left: 5px solid #ff4d6d;
+    border-radius: 5px;
+    font-style: italic;
+    font-weight: 600;
+    color: #c9184a;
+    margin: 25px 0;
+    line-height: 1.6;
+}
+
+/* Tampilan Responsif untuk HP */
+@media (max-width: 768px) {
+    .layout-konten {
+        flex-direction: column;
+    }
+    .kolom-foto, .kolom-cerita {
+        width: 100%;
+    }
+    .kolom-foto {
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .foto-galeri {
+        width: 28%;
+        height: 90px;
+    }
+    h1 { font-size: 2.5rem; }
+}
+
+.section-utama h2 {
+    text-align: center;
+    width: 100%;
+}
